@@ -1,0 +1,6 @@
+langchain_groq
+langchain_huggingface
+langchain_pinecone
+langchain
+streamlit
+pinecone-client
