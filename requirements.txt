@@ -5,3 +5,4 @@ langchain
 streamlit
 pinecone-client
 dotenv
+sentence-transformers
