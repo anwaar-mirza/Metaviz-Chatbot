@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_pinecone import PineconeVectorStore
@@ -10,7 +10,7 @@ from pinecone import Pinecone
 import time
 import os
 load_dotenv()
-os.environ["HF_TOKEN"] = st.secrets["HF_TOKEN"]
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 os.environ["PINECONE_API_KEY"] = st.secrets["PINECONE_API_KEY"]
 prompt_templete = """
@@ -46,12 +46,12 @@ class MetavizChatBot:
         self.chain = self.create_chain()
 
     def load_vector_store(self):
-        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+        embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
         pc = Pinecone()
-        index = pc.Index("metaviz-knowledge-base-semantic")
+        index = pc.Index("metaviz-final-base")
 
         vector_store = PineconeVectorStore(index=index, embedding=embeddings)
-        retriever = vector_store.as_retriever(search_kwargs={"k": 5})
+        retriever = vector_store.as_retriever(search_kwargs={"k": 10})
         return retriever
     
 
