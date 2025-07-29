@@ -51,7 +51,7 @@ class MetavizChatBot:
         index = pc.Index("metaviz-knowledge-base-semantic")
 
         vector_store = PineconeVectorStore(index=index, embedding=embeddings)
-        retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 5})
+        retriever = vector_store.as_retriever(search_kwargs={"k": 5})
         return retriever
     
 
