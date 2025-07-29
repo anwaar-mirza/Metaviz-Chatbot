@@ -10,9 +10,9 @@ from pinecone import Pinecone
 import time
 import os
 load_dotenv()
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["PINECONE_API_KEY"] = os.getenv("PINECONE_API_KEY")
+os.environ["HF_TOKEN"] = st.secrets["HF_TOKEN"]
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+os.environ["PINECONE_API_KEY"] = st.secrets["PINECONE_API_KEY"]
 prompt_templete = """
 <prompt>
   <role>Metaviz Information Assistant</role>
