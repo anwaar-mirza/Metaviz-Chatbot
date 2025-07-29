@@ -1,0 +1,44 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore environment files
+.env
+.env.*
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore virtual environment folders
+venv/
+env/
+.venv/
+.Python
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Ignore Streamlit generated cache and config
+.streamlit/config.toml
+.streamlit/secrets.toml
+
+# VS Code settings
+.vscode/
+
+# Ignore model and vectorstore files
+*.pkl
+*.json
+*.db
+*.faiss
+*.bin
+*.ckpt
+*.pt
+
+# Ignore up
